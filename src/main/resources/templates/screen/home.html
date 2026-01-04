@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f8fafc;
+    margin: 0;
+    padding: 20px;
+}
+
+.header {
+    background: #3182ce;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3182ce;
+    font-weight: bold;
+}
+
+.user-name {
+    color: white;
+    font-weight: bold;
+}
+
+.logout-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background: #c82333;
+}
+
+.main-content {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.welcome-title {
+    color: #1a202c;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+    <div class="user-info" th:if="${user}">
+        <div class="user-avatar" th:text="${user.email.charAt(0)}">U</div>
+        <div class="user-name" th:text="${user.email}">user@example.com</div>
+    </div>
+    
+    <a th:href="@{/api/logout}" class="logout-btn">
+        🚶 ログアウト
+    </a>
+</div>
+
+<div class="main-content">
+    <h2 class="welcome-title">Hello,<br>My name is Moe Htet(モーテッ)</h2>
+</div>
+
+</body>
+</html>
